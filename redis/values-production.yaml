@@ -72,7 +72,7 @@ sentinel:
     ##
     # pullSecrets:
     #   - myRegistryKeySecretName
-  masterSet: dano-redis
+  masterSet: aaaa-redis
   initialCheckTimeout: 5
   quorum: 2
   downAfterMilliseconds: 5000

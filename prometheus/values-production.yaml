@@ -1548,7 +1548,7 @@ serverFiles:
 
         static_configs:
           - targets:
-              - prometheus.prod.kube.dano.xyz:80
+              - prometheus.prod.aaaa.aaaa.xyz:80
 
       # federation from istio prometheus cadvisor
       - job_name: istio-prometheus-cadvisor
@@ -1559,7 +1559,7 @@ serverFiles:
         metric_relabel_configs:
           - source_labels: [ __name__ ]
             regex: '(.*)'
-            replacement: 'dano_kube:$1'
+            replacement: 'aaaa_kube:$1'
             target_label: __name__
             action: replace
 
@@ -1569,7 +1569,7 @@ serverFiles:
 
         static_configs:
           - targets:
-              - prometheus.prod.kube.dano.xyz:80
+              - prometheus.prod.kube.aaaa.xyz:80
 
 
       # federation from istio prometheus node exporter
@@ -1581,7 +1581,7 @@ serverFiles:
         metric_relabel_configs:
           - source_labels: [ __name__ ]
             regex: '(.*)'
-            replacement: 'dano_kube:$1'
+            replacement: 'aaaa_kube:$1'
             target_label: __name__
             action: replace
 
@@ -1591,7 +1591,7 @@ serverFiles:
 
         static_configs:
           - targets:
-              - prometheus.prod.kube.dano.xyz:80
+              - prometheus.prod.aaaa.aaaa.xyz:80
 
 # adds additional scrape configs to prometheus.yml
 # must be a string so you have to add a | after extraScrapeConfigs:
