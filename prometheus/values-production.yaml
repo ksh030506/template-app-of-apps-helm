@@ -105,12 +105,9 @@ alertmanager:
       cert-manager.io/cluster-issuer: letsencrypt-production
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/server-snippet: |
-        error_page 403 http://proxy.dano.me/forbidden;
+        error_page 403 http://proxy.aaa.com/forbidden;
 
-        allow 101.101.166.132;  # vpn external ip
-        allow 110.12.131.174;    # company ip
-        allow 61.34.119.237;    # company ip
-        allow 27.96.131.50;     # jenkins ip
+        allow 111.111.111.111;  # ip
 
         deny all;
 
@@ -122,7 +119,7 @@ alertmanager:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-       - alertmanager.infra.kube.dano.me
+       - alertmanager.infra.aaa.aaa.com
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -136,7 +133,7 @@ alertmanager:
     ##
     tls:
       - hosts:
-          - alertmanager.infra.kube.dano.me
+          - alertmanager.infra.aaa.aaa.com
         secretName: alertmanager-tls
 
   ## Alertmanager Deployment Strategy type
@@ -679,13 +676,9 @@ server:
       cert-manager.io/cluster-issuer: letsencrypt-production
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/server-snippet: |
-        error_page 403 http://proxy.dano.me/forbidden;
+        error_page 403 http://proxy.aaaa.com/forbidden;
 
-        allow 101.101.166.132;  # vpn external ip
-        allow 110.12.131.174;    # company ip
-        allow 61.34.119.237;    # company ip
-        allow 27.96.131.50;     # jenkins ip
-
+        allow 111.111.111.111;  # ip
         deny all;
 
     ## Prometheus server Ingress additional labels
@@ -696,7 +689,7 @@ server:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-      - prometheus.infra.kube.dano.me
+      - prometheus.infra.aaa.aaaa.com
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -710,7 +703,7 @@ server:
     ##
     tls:
       - hosts:
-          - prometheus.infra.kube.dano.me
+          - prometheus.infra.aaa.aaaa.com
         secretName: prometheus-tls
 
   ## Server Deployment Strategy type
@@ -976,19 +969,16 @@ pushgateway:
     annotations:
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/server-snippet: |
-        error_page 403 http://proxy.dano.me/forbidden;
+        error_page 403 http://proxy.aaaa.com/forbidden;
 
-        allow 101.101.166.132;  # vpn external ip
-        allow 110.12.131.174;    # company ip
-        allow 61.34.119.237;    # company ip
-        allow 27.96.131.50;     # jenkins ip
+        allow 111.111.111.111;  #  ip
 
         deny all;
     ## pushgateway Ingress hostnames with optional path
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-       - pushgateway.dano.xyz
+       - pushgateway.aaaa.com
     #   - domain.com/pushgateway
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
@@ -1003,7 +993,7 @@ pushgateway:
     ##
     tls:
       - hosts:
-          - pushgateway.dano.xyz
+          - pushgateway.aaaa.com
 
   ## Node tolerations for pushgateway scheduling to nodes with taints
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
